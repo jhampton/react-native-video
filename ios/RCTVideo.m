@@ -380,7 +380,7 @@ static NSString *const playbackRate = @"rate";
         }
     }
   } else if (object == _player) {
-      if([keyPath isEqualToString:playbackRate]) {
+      if([keyPath isEqualToString:playbackRate] && self.onPlaybackRateChange != nil) {
           self.onPlaybackRateChange(@{@"playbackRate": [NSNumber numberWithFloat:_player.rate],
                                       @"target": self.reactTag});
           if(_playbackStalled && _player.rate > 0) {
